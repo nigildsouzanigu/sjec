@@ -277,7 +277,7 @@
 						else if($("#eventtype").val()=="College Level")
 						{
 							$("#depnamegroup").hide();
-							
+							//alert
 							$("#associationgroup").hide();
 							$("#associationnamegroup").hide();
 						}
