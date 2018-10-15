@@ -1,3 +1,14 @@
+<?php 
+
+include "dbfile.php";
+$query="SELECT `venuename` FROM `venue`";
+$result=$link->query($query);
+
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -129,14 +140,13 @@
 							<label for="venue">Select Venue :</label>
 
 							<select class="custom-select" id="venue">
-								<option></option>
-								<option value="Kalam Auditorium">Kalam Auditorium</option>
-								<option value="Bishop Aloysius Paul Hall">Bishop Aloysius Paul Hall</option>
-								<option value="Spoorthi Conference Hall">Spoorthi Conference Hall</option>
-								<option value="Fr Fred Memorial Hall">Fr Fred Memorial Hall</option>
-								<option value="Bethania Hall">Bethania Hall</option>
-								<!--<option value="CS">CS</option>
-								<option value="Mech">Mech</option>-->
+								<?php 
+									while($row=$result->fetch_assoc())
+									{
+										echo '<option value="'.$row["venuename"].'">'.$row["venuename"].'</option>';
+									}
+			
+								?>
 							</select>
 						</div>
 					</div>
@@ -191,20 +201,23 @@
 					{
 						
 						//window.alert("hello1");
-						var uname=$("#uname").val();
-						var email=$("#email").val();
-						var password=$("#password").val();
-						var repassword=$("#repassword").val();
-						var phone=$("#phone").val();
-						var designation=$("#designation").val();
-						var department=$("#department").val();
-						window.alert("hello2");
+						var eventtype=$("#eventtype").val();
+						var ename=$("#ename").val();
+						var associationtype=$("#associationtype").val();
+						var associationname=$("#associationname").val();
+						var depname=$("#depname").val();
+						var startdate=$("#startdate").val();
+						var enddate=$("#enddate").val();
 						
+						var starttime=$("#starttime").val();
+						var endtime=$("#endtime").val();
+						var venue=$("#password").val();
+											
 						
 						$.ajax({
-								url:"php/signupcode.php",
+								url:"php/hallbookingcode.php",
 								method:"POST",
-								data:{uname:uname,email:email,password:password,phone:phone,designation:designation,department:department},
+								data:{eventtype:eventtype,ename:ename,associationtype:associationtype,associationname:associationname,depname:depname,startdate:startdate,enddate:enddate,starttime:starttime,endtime:endtime,venue:venue},
 								dataType:"JSON",
 								success:function(data)
 								{
