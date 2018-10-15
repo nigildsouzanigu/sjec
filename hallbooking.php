@@ -72,7 +72,7 @@
 							<label for="depname">Select department :</label>
 
 							<select class="custom-select" id="depname">
-								<option></option>
+								
 								<option value="MCA">MCA</option>
 								<option value="MBA">MBA</option>
 								<option value="CS">CS</option>
@@ -277,7 +277,7 @@
 						else if($("#eventtype").val()=="College Level")
 						{
 							$("#depnamegroup").hide();
-							alert(1);
+							
 							$("#associationgroup").hide();
 							$("#associationnamegroup").hide();
 						}
@@ -287,7 +287,7 @@
 			
 					
 					$("#associationtype").change(function(){
-						alert("3");
+						
 						if($("#associationtype").val()=="Department Association")
 						{
 							$("#depnamegroup").show();
